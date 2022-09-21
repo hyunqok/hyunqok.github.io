@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title> new document </title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="robots" content="follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=yes" />
+<meta name="author" content="제작자정보" />
+<meta name="copyright" content="제작권정보" />
+<meta name="keywords" content="키워드1,키워드2,키워드3,키워드4" />
+<meta name="description" content="페이지요약" />
+
+<link rel="stylesheet" type="text/css" href="css/styel.css" />
+
+<!--
+웹 클립 아이콘
+
+사파리에서 특정 페이지를 홈 스크린으로 만들때 모바일 사파리는 아이콘으로 만들 웹 클립 파일을 해당 웹페이지에서 찾는다.
+파일명: apple-touch-icon-precomposed.png
+다른 곳에 파일을 두고 있다면 link 태그로 지정하면 된다.
+<link rel="apple-touch-icon" href="gilbird.png" />
+<link rel="apple-touch-icon-precomposed" href="gilbird.png" />
+
+풀 스크린
+
+다음 태그를 넣어두고 페이지를 홈 스크린으로 등록 하면 모바일 사파리는 풀 스크린으로 시작한다.
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+상태바 없애기
+
+풀 스크린 모드로 동작하는 경우 아래 메타 태그로 상태바도 조정할 수 있다.
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+시작 화면
+
+풀스크린 모드로 시작할 때 다음 메타 태그로 시작화면을 띄울 수 있다.
+<link rel="apple-touch-startup-image" href="loading.png" />
+-->
+
+<!-- 캐시관련 -->
+<!--
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="1"/>  캐시 기록 저장 유효기간 설정
+<meta http-equiv="Pragma" content="no-cache"/>
+-->
+<!-- //캐시관련 -->
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond_min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<!-- loading bar --><div class='css_loader uil-ring-css' style='transform:scale(0.44);'><div></div></div><!-- //loading bar -->
+
+<!--[if lte IE 8]>
+<div class="alert-brw-update">
+	<span class="bg"></span>
+	<div class="update_cts">
+		사용 중인 브라우저는 보안에 취약한 구 버전의 브라우저입니다.<br />
+		웹 브라우저를 <a href="http://www.microsoft.com/korea/ie" class="alert-link" target="_blank">업그레이드</a>하시거나, 다른 브라우저를 사용해보시기 바랍니다.<br />
+		<a href="http://www.google.com/chrome?hl=ko" class="alert-link" target="_blank">구글 크롬 바로가기</a>,
+		<a href="http://www.mozilla.or.kr/ko/firefox/" class="alert-link" target="_blank">파이어폭스 바로가기</a>
+
+		<div class="hid_check">
+			<input type="checkbox" name="hid_pop" id="hid_pop" /> <label for="hid_pop">오늘하루 보이지 않기</label>
+		</div>
+	</div>
+	<button type="button" class="btn-update-close">&times;</button>
+</div>
+<![endif]-->
+
+<!-- wrap -->
+<div id="wrap" style="opacity:0;">
+	<!-- skip navi -->
+	<div id="accessibility">
+		<a href="#container">본문 바로가기</a>
+	</div>
+	<!-- //skip navi -->
+
+	<!-- header -->
+	<header>header</header>
+	<!-- //header -->
+
+	<!-- section -->
+	<section>
+		<h2>title</h2>
+		<!-- article -->
+		<article>
+			<h3>title</h3>
+		</article>
+		<!-- //article -->
+	</section>
+	<!-- //section -->
+
+	<!-- footer -->
+	<footer>footer</footer>
+	<!-- //footer -->
+
+</div>
+<!-- //wrap -->
+
+<!--
+항상 최신버전으로 업데이트 되는 라이브러리
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/vm_lib.js"></script>
+<script type="text/javascript" src="js/vm_common.js"></script>
+
+</body>
+</html>
