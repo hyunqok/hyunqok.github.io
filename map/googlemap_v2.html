@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- This stylesheet contains specific styles for displaying the map
+on this page. Replace it with your own styles as described in the
+documentation:
+https://developers.google.com/maps/documentation/javascript/tutorial -->
+<style type="text/css">
+body {
+	margin: 0;
+}
+
+#map {
+	height: 430px;
+	position: relative;
+	width: 430px;margin: 0 auto;
+}
+
+.maps-frame {
+	height: 430px;
+	width: 100%;
+}
+
+.kd-tabbed-vert.header-links .kd-tabbutton a {
+	color: #757575;
+	display: inline-block;
+	height: 100%;
+	padding: 0 24px;
+	width: 100%;
+}
+
+.kd-tabbed-vert.header-links .kd-tabbutton {
+	padding: 0;
+}
+
+.kd-tabbed-vert.header-links .kd-tabbutton.selected a {
+	color: #03a9f4;
+}
+
+.kd-tabbed-vert.header-links .kd-tabbutton a:focus {
+	text-decoration: none;
+}
+
+p.top-desc {
+	padding: 1em 1em .1em 1em;
+}
+
+p.bottom-desc {
+	padding: 0em 1em 1em 1em;
+}
+</style>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+		function initMap() {
+			// Create a map object and specify the DOM element for display.
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: -34.397, lng: 150.644},
+				zoom: 8
+			});
+		}
+
+	</script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY0t2Z__SY0E-Xxd6y9Wrt7Y6iuFcQYio&callback=initMap" async defer></script> -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY0t2Z__SY0E-Xxd6y9Wrt7Y6iuFcQYio&callback=initMap" async defer></script>
+</body>
+</html>

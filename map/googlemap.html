@@ -1,0 +1,89 @@
+<style type="text/css">
+/*줌 컨트롤 위치*/
+.gmnoprint.gm-bundled-control {top : auto;left:auto;right: 0;bottom:120px !important;z-index: 500;}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+<!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyD0mEz7ypDt1oMm9WFrXaJGVJIIiosrbes&sensor=true"></script> -->
+
+<!--
+	API key 발급
+	https://console.developers.google.com/apis/library?project=lucid-arch-136223
+	https://developers.google.com/
+ -->
+
+<script>
+/*window.onload = function() {
+	var latlng = new google.maps.LatLng(37.61364290150408, 127.03001693272404);
+	var marker_name = "sdfsdfdsf";
+	var marker_position = new google.maps.LatLng(37.61449277532038, 127.03057483219913);
+	var myOptions = {
+		zoom: 15,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		zoomControl : true,
+		streetViewControl : false,
+		disableDoubleClickZoom : false,
+		draggable  : true,
+		scrollwheel : true,
+		mapTypeControl : false,
+		scaleControl : true,
+		rotateControl : false,
+		panControl : false
+	};
+	var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+	var marker = new google.maps.Marker({
+		position : marker_position,
+		map : map,
+		title : marker_name
+	});
+}*/
+window.onload = function() {
+	var latlng = new google.maps.LatLng(37.3986, 127.1068);
+	var marker_name = "SuperCreative";
+	var marker_position = new google.maps.LatLng(37.3986, 127.1068);
+	var myOptions = {
+		zoom: 15,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		fullscreenControl : true,
+		zoomControl : true,
+		/*zoomControlOptions: {
+			position: google.maps.ControlPosition.RIGHT_CENTER
+		},*/
+		streetViewControl : false,
+		disableDoubleClickZoom : false,
+		draggable  : true,
+		scrollwheel : false,
+		mapTypeControl : false,
+		scaleControl : true,
+		rotateControl : false,
+		panControl : false
+	};
+	var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+	var marker = new google.maps.Marker({
+		position : marker_position,
+		map : map,
+		title : marker_name
+	});
+	function showAsCeterByMarker(){ //마커 기준 중앙으로
+		map.setCenter(marker.getPosition());
+	}
+	google.maps.event.addDomListener(window, "resize", function() {
+		var center = map.getCenter();
+		google.maps.event.trigger(map, "resize");
+		map.setCenter(center);
+
+		showAsCeterByMarker();
+	});
+
+	$(".gm-bundled-control .gmnoprint").css({
+		"border" : "1px red solid",
+		"top" : "auto",
+		"left" : "auto",
+		"right" : "0px",
+		"bottom" : "180px"
+	});
+}
+</script>
+<div id="map_canvas" style="width:100%;height:100%;"></div>
