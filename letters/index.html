@@ -1,0 +1,873 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=yes" />
+<title>특수문자표</title>
+<meta name="author" content="제작자정보" />
+<meta name="keywords" content="키워드1,키워드2,키워드3,키워드4" />
+<meta name="copyright" content="제작권정보" />
+
+<!-- 부트스트랩 일부만 사용 하기 -->
+<link rel="stylesheet/less" type="text/css" href="style.less" />
+<!-- //부트스트랩 일부만 사용 하기 -->
+
+<!-- Latest compiled and minified JavaScript -->
+<!--[if lt IE 9]><script src="respond_min.js"></script><![endif]-->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+<!-- 부트스트랩 -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- //부트스트랩 -->
+
+</head>
+
+<body class="">
+
+<!-- 부트스트랩 일부만 사용 하기 -->
+<div class="bootstrap">
+	<a class="btn btn-default" href="#" role="button">Link</a>
+	<button class="btn btn-default" type="submit">Button</button>
+	<input class="btn btn-default" type="button" value="Input">
+	<input class="btn btn-default" type="submit" value="Submit">
+</div>
+<!-- //부트스트랩 일부만 사용 하기 -->
+
+<table cellspacing="1" cellpadding="3" width="500" align="center" bgcolor="#999999" border="0" class="">
+	<tbody>
+		<tr>
+			<td align="left" width="65" bgcolor="#666666" height="20"><p align="center"><span style="COLOR: #333333; FONT-FAMILY: 굴림"><strong>표현문자</strong></span></p></td>
+			<td align="left" width="121" bgcolor="#666666"><p align="center"><span style="COLOR: #333333; FONT-FAMILY: 굴림"><strong>숫자표현</strong></span></p></td>
+			<td align="left" width="74" bgcolor="#666666"><p align="center"><span style="COLOR: #333333; FONT-FAMILY: 굴림"><strong>문자표현</strong></span></p></td>
+			<td align="left" width="227" bgcolor="#666666"><p align="center"><span style="COLOR: #333333; FONT-FAMILY: 굴림"><strong>설명</strong></span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#00;-&amp;#08;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">사용하지 않음</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">space</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#09;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">수평탭</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">space</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#10;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">줄 삽입</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#11;-&amp;#31;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">사용하지 않음</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">space</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#32;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">여백</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">!</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#33;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">느낌표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">"</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#34;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;quot;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">따옴표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">#</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#35;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">숫자기호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">$</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#36;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">달러</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">%</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#37;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">백분율 기호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#38;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;amp;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Ampersand</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">'</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#39;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">작은 따옴표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">(</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#40;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">왼쪽 괄호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">)</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#41;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">오른쪽 괄호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">*</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#42;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">아스트릭</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">+</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#43;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">더하기 기호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">,</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#44;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">쉼표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#45;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Hyphen</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">.</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#46;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">마침표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">/</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#47;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Solidus (slash)</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">0 - 9</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#48;-&amp;#57;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">0부터 9까지</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">:</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#58;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">콜론</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#59;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">세미콜론</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&lt;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#60;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;lt;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">보다 작은</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">=</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#61;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">등호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&gt;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#62;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;gt;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">보다 큰</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">?</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#63;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">물음표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">@</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#64;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Commercial at</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">A - Z</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#65;-&amp;#90;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">A부터 Z까지</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">[</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#91;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">왼쪽 대괄호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">\</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#92;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">역슬래쉬</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">]</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#93;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">오른쪽 대괄호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">^</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#94;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">탈자부호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">_</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#95;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">수평선</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">`</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#96;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">a - z</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#97;-&amp;#122;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">a부터 z까지</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">{</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#123;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">왼쪽 중괄호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">|</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#124;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">수직선</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">}</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#125;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">오른쪽 중괄호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">~</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#126;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">꼬리표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#127;-&amp;#159;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">-</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">사용하지 않음</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><span style="COLOR: #333333"></span></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#160;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;nbsp;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Non-breaking space</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¡</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#161;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;iexcl;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">거꾸로된 느낌표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">￠</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#162;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;cent;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">센트 기호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">￡</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#163;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;pound;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">파운드</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¤</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#164;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;curren;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">현재 환율</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">￥</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#165;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;yen;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">엔</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">|</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#166;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;brvbar;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">끊어진 수직선</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">§</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#167;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;sect;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">섹션 기호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¨</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#168;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;uml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">움라우트</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">ⓒ</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#169;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;copy;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">저작권</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">ª</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#170;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ordf;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Feminine ordinal</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">≪</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#171;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;laquo;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">왼쪽 꺾인 괄호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">￢</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#172;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;not;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">부정</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">­</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#173;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;shy;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Soft hyphen</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">?</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#174;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;reg;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">등록상표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;hibar;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#175;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;macr;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Macron accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">°</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#176;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;deg;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Degree sign</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">±</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#177;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;plusmn;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Plus or minus</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">²</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#178;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;sup2;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Superscript two</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">³</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#179;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;sup3;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Superscript three</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">´</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#180;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;acute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">μ</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#181;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;micro;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Micro sign (Mu)</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¶</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#182;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;para;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">문단기호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">·</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#183;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;middot;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Middle dot</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¸</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#184;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;cedil;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Cedilla</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¹</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#185;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;sup1;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Superscript one</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">º</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#186;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ordm;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Masculine ordinal</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">≫</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#187;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;raquo;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">오른쪽 꺾인 괄호</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¼</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#188;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;frac14;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">4분의 1</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">½</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#189;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;frac12;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">2분의 1</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¾</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#190;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;frac34;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">4분의 3</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">¿</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#191;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;iquest;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">거꾸로된 물음표</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">A</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#192;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Agrave;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital A, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">A</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#193;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Aacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital A, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">A</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#194;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Acirc; </span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital A, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">A</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#195;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Atilde;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital A, tilde</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">A</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#196;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Auml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital A, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">A</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#197;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Aring;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital A, ring (Angstrom)</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Æ</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#198;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;AElig;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital AE diphthong (ligature)</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">C</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#199;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Ccedil;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital C, cedilla</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">E</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#200;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Egrave;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital E, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">E</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#201;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Eacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital E, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">E</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#202;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Ecirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital E, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">E</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#203;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Euml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital E, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">I</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#204;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Igrave;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital I, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">I</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#205;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Iacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital I, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">I</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#206;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Icirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital I, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">I</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#207;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Iuml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital I, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Ð</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#208;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ETH;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital Eth, Icelandic</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">N</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#209;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Ntilde;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital N, tilde</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">O</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#210;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Ograve;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital O, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">O</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#211;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Oacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital O, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">O</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#212;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Ocirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital O, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">O</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#213;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Otilde;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital O, tilde</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">O</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#214;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Ouml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital O, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">×</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#215;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;times;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Multiply sign</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Ø</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#216;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Oslash;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">width="130"Capital O, slash</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">U</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#217;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Ugrave;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital U, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">U</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#218;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Uacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital U, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">U</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#219;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Ucirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital U, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">U</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#220;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Uuml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital U, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Y</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#221;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;Yacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital Y, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Þ</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#222;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;THORN;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Capital Thorn, Icelandic</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">ß</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#223;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;szlig;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small sharp s, German (sz ligature)</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">a</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#224;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;agrave;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small a, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">a</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#225;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;aacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small a, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">a</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#226;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;acirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small a, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">a</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#227;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;atilde;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small a, tilde</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">a</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#228;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;auml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small a, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">a</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#229;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;aring;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small a, ring</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">æ</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#230;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;aelig;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small ae diphthong (ligature)</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">c</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#231;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ccedil;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small c, cedilla</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">e</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#232;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;egrave;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small e, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">e</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#233;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;eacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small e, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">e</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#234;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ecirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small e, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">e</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#235;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;euml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small e, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">i</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#236;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;igrave;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small i, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">i</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#237;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;iacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small i, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">i</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#238;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;icirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small i, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">i</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#239;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;iuml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small i, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">ð</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#240;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;eth;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small eth, Icelandic</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">n</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#241;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ntilde;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small n, tilde</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">o</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#242;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ograve;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small o, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">o</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#243;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;oacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small o, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">o</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#244;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ocirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small o, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">o</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#245;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;otilde;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small o, tilde</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">o</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#246;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ouml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small o, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">÷</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#247;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;divide;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Division sign</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">ø</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#248;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;oslash;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small o, slash</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">u</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#249;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ugrave;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small u, grave accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">u</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#250;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;uacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small u, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">u</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#251;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;ucirc;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small u, circumflex accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">u</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#252;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;uuml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small u, dieresis or umlaut mark</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">y</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#253;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;yacute;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small y, acute accent</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">þ</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#254;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;thorn;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small thorn, Icelandic</span></p></td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">y</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;#255;</span></p></td>
+			<td align="left" bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">&amp;yuml;</span></p></td>
+			<td bgcolor="#f0f0f0"><p><span style="COLOR: #333333; FONT-FAMILY: 굴림">Small y, dieresis or umlaut mark</span></p></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

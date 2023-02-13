@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title> new document </title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=no" />
+
+<style>
+	form {margin-top: 20px;}
+	form fieldset {padding: 10px;}
+	form legend {font-size: 16px;font-weight: 600;color: #0412AF;}
+	form input[type="number"],
+	form input[type="text"],
+	form select {width: 100px;height: 25px;}
+	form:first-child {margin-top: 0;}
+
+	.form-a {display: block;font-size: 15px;font-weight: 600;color: #B40505;}
+</style>
+</head>
+<body>
+
+	<form method="post" name="A_P">
+		<fieldset>
+			<legend>전체값의 몇 프로는 몇인가</legend>
+			<input type="number" name="A_P_input01" />의
+			<input type="number" name="A_P_input02" /> %는 얼마? = 
+			<input type="text" name="A_P_input_result" readonly />
+			
+			<button type="button" onclick="returnCalc('A_P')">확인</button>
+			<p>
+				전체값의 몇 퍼센트는 몇 프로 인가<br>
+				80의 20(%)은 16<br><br>
+				<span class="form-a">답: <span class="val1">80</span> x <span class="val2">20</span>(%) / 100 = <span class="vaResult">16</span></span>
+			</p>
+		</fieldset>
+	</form>
+
+	<form method="post" name="B_F">
+		<fieldset>
+			<legend>전체값에서 일부값은 몇 퍼센트인가</legend>
+			<input type="number" name="B_F_input01" />에서
+			<input type="number" name="B_F_input02" />은(는) 몇 퍼센트?
+			<button type="button" onclick="returnCalc('B_F')">확인</button>
+			<input type="text" name="B_F_input_result" style="width: 60px" readonly /> %
+			
+			<p>
+				전체값에서 일부값은 몇 퍼센트인가 계산<br>
+				첫 번째 상자 20, 두 번째 상자 80에 작성하여 80의 백분율을 계산합니다.<br><br>
+
+				<span class="form-a">답: <span class="val1">1000</span> x 100 / <span class="val2">500</span> = <span class="vaResult">50</span>%</span>
+			</p>
+		</fieldset>
+	</form>
+
+	<form method="post" name="C_F">
+		<fieldset>
+			<legend>어떤 값이 다른 값으로 변동되면, 몇 퍼센트 증가? 감소?</legend>
+			<input type="number" name="C_F_input01" />이(가)
+			<input type="number" name="C_F_input02" />로 변하면 몇 퍼센트 증가 또는 감소? =
+			<button type="button" onclick="returnCalc('C_F')">확인</button>
+			<input type="text" name="C_F_input_result" style="width: 60px;" readonly /> %
+			
+			<p>
+				어떤 값이 다른 값으로 변동되면, 몇 퍼센트 증가? 감소? 계산 <br>
+				제 1 상자 (20), 제 2 상자 (60)에 기입하여 변경된 값의 백분율을 계산한다.<br><br>
+
+				<span class="form-a">답: (<span class="val2">2000</span> - <span class="val1">1000</span>) / <span class="val1">1000</span> x 100 = <span class="vaResult">100</span>%</span>
+			</p>
+		</fieldset>
+	</form>
+
+	<form method="post" name="D_F">
+		<fieldset>
+			<legend>퍼센트 증가 감소 계산</legend>
+			<input type="number" name="D_F_input01" />이(가)
+			<input type="number" name="D_F_input02" />%
+			<select name="D_F_sel01">
+				<option value="증가">증가</option>
+				<option value="감소">감소</option>
+			</select><button type="button" onclick="returnCalc('D_F')">확인</button> 하면 얼마? = 
+			<input type="text" name="D_F_input_result" readonly />
+			
+			
+			<p>
+				퍼센트 증가 감소 계산기<br>
+				두 번째 상자 (증가 / 감소)를 선택하는 것보다 첫 번째 상자 10, <br>세 번째 상자 70에 쓰면 70을 10 % 증가 또는 감소시킬 수 있습니다. <br><br>
+				<span class="form-a">답: <span class="val1">50</span> <span class="val3">+</span> (<span class="val1">50</span> x <span class="val2">30</span>(%) / 100) = <span class="vaResult">65</span></span>
+			</p>
+		</fieldset>
+	</form>
+
+	<script>
+
+		function toScreen(data) {
+			var form = $('[name="'+ data.form +'"]');
+			for (key in data) {
+				form.find('span.'+key).text( data[key] );
+			}
+		}
+
+		// 전체값의 몇 프로는 몇인가
+		function calcA_P() {
+			var fm = "A_P";
+			var val1 = $('[name="'+ fm +'_input01"]').val();
+			var val2 = $('[name="'+ fm +'_input02"]').val();
+			var result = parseInt ( (val1 * val2) / 100 );
+			var data = {
+				"form": fm,
+				"val1": val1,
+				"val2": val2,
+				"vaResult": result
+			}
+
+			toScreen(data);
+
+			return result;
+		}
+
+		// 전체값의 몇 퍼센트는 얼마인가
+		function calcB_F() {
+			var fm = "B_F";
+			var val1 = $('[name="'+ fm +'_input01"]').val();
+			var val2 = $('[name="'+ fm +'_input02"]').val();
+			var result =(val2 * 100) / val1;
+			var data = {
+				"form": fm,
+				"val1": val1,
+				"val2": val2,
+				"vaResult": result
+			}
+			
+			toScreen(data);
+			return result;
+		}
+
+		// 어떤 값이 다른 값으로 변동되면, 몇 퍼센트 증가? 감소?
+		function calcC_F() {
+			var fm = "C_F";
+			var val1 = parseInt( $('[name="'+ fm +'_input01"]').val() );
+			var val2 = parseInt( $('[name="'+ fm +'_input02"]').val() );
+			var result =(val2 - val1) / val1 * 100;
+			var data = {
+				"form": fm,
+				"val1": val1,
+				"val2": val2,
+				"vaResult": result
+			}
+			
+			toScreen(data);
+
+			return result;
+		}
+
+		// 퍼센트 증가 감소 계산
+		function calcD_F() {
+			var fm = "D_F";
+			var val1 = parseInt( $('[name="'+ fm +'_input01"]').val() );
+			var val2 = parseInt( $('[name="'+ fm +'_input02"]').val() );
+			var updownCase = $('[name="'+ fm +'_sel01"] option:selected').val();
+			var result = 0;
+
+			var data = {
+				"form": fm,
+				"val1": val1,
+				"val2": val2,
+			}
+
+			if ( updownCase === "증가" ) {
+				result = (val1 * val2 / 100) + val1
+				data.val3 = '+';
+			}else {
+				result = val1 - ( val1 * val2 / 100 )
+				data.val3 = '-';
+			}
+
+			data.vaResult = result;
+
+			toScreen(data);
+
+			return result;
+		}
+
+		function returnCalc(type) {
+			var resultInput = $('form[name="'+ type +'"] input[name="'+ type +'_input_result"]');
+			switch (type) {
+				case "A_P":
+					resultInput.val( parseInt( calcA_P() ) );
+					break;
+				case "B_F":
+					resultInput.val( parseInt( calcB_F() ) );
+
+					break;
+				case "C_F":
+					resultInput.val( parseInt( calcC_F() ) );
+
+					break;
+				case "D_F":
+					resultInput.val( parseInt( calcD_F() ) );
+
+					break;
+				default:
+					// statements_def
+					break;
+			}
+		}
+		
+	</script>
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+//할인율
+function return_percent(target, value){
+	var percent = (value/target)*100;
+
+	return percent.toFixed(1);
+}
+
+//할인액
+function return_sale(target, percent){
+	var sale = (percent/100) * target;
+
+	return sale;
+}
+
+function return_percent_check(){
+	var target = $('#p-target').val();
+	var p_value = $('#p-value').val();
+	$('#p-output').val(return_percent(target, p_value)+'%');
+	$('#p-input-val').text(p_value);
+	$('#p-input-targer').text(target);
+}
+function return_sale_check(){
+	var target = $('#s-target').val();
+	var p_sale = $('#s-value').val();
+	$('#s-output').val(return_sale(target, p_sale)+'원');
+	$('#s-input-pro').text(p_sale);
+	$('#s-input-targer').text(target);
+}
+
+</script>
+</html>
