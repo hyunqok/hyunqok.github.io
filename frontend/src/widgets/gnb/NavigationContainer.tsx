@@ -1,20 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { NavItem } from './NavigationType';
 import { NavigationPresenter } from './NavigationPresenter';
-
-export interface NavItem {
-	name: string;
-	href: string;
-}
-
-export interface NavigationProps {
-	isScrolled: boolean;
-	isMobileMenuOpen: boolean;
-	navItems: NavItem[];
-	onMenuToggle: () => void;
-	onNavItemClick: (href: string) => void;
-}
 
 export function NavigationContainer() {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -30,10 +18,10 @@ export function NavigationContainer() {
 	}, []);
 
 	const navItems: NavItem[] = [
-		{ name: '홈', href: '#home' },
-		{ name: '프로젝트', href: '#projects' },
-		{ name: '기술', href: '#skills' },
-		{ name: '연락', href: '#contact' },
+		{ name: 'Home', href: '#home' },
+		{ name: 'Projects', href: '#projects' },
+		{ name: 'Skills', href: '#skills' },
+		{ name: 'Contact', href: '#contact' },
 	];
 
 	const handleNavItemClick = (href: string) => {

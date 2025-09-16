@@ -1,5 +1,5 @@
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card } from '@/shared/ui/card';
+import { Button } from '@/shared/ui/button';
 
 interface ContactFormData {
 	name: string;

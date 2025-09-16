@@ -1,4 +1,4 @@
-import { NavigationProps } from './NavigationContainer';
+import { NavigationProps } from './NavigationType';
 
 export function NavigationPresenter({
 	isScrolled,

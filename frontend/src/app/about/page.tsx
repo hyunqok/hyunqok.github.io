@@ -1,11 +1,6 @@
-import { Navigation } from '@/components/Navigation';
-import { Footer } from '@/components/Footer';
-
 export default function About() {
 	return (
 		<div className="min-h-screen">
-			<Navigation />
-
 			<main className="pt-16">
 				{/* About 헤더 */}
 				<section className="px-4 py-20">
@@ -198,8 +193,6 @@ export default function About() {
 					</div>
 				</section>
 			</main>
-
-			<Footer />
 		</div>
 	);
 }

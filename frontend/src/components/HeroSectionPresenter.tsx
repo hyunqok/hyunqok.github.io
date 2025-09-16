@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/ui/button';
 
 interface HeroSectionPresenterProps {
 	isVisible: boolean;
@@ -20,10 +20,6 @@ export function HeroSectionPresenter({ isVisible }: HeroSectionPresenterProps) {
 				<div className="glass rounded-3xl p-8 shadow-2xl md:p-12">
 					<h1 className="mb-6 text-4xl font-bold md:text-6xl lg:text-7xl">
 						<span className="text-white">안녕하세요!</span>
-						<br />
-						<span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-							웹퍼블리싱 10년차 개발자입니다
-						</span>
 					</h1>
 
 					<p className="mx-auto mb-8 max-w-2xl text-xl leading-relaxed text-white/80 md:text-2xl">
