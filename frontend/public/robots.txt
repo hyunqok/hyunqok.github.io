@@ -1,0 +1,22 @@
+# Robots.txt for 주식 투자 도구
+# https://hyunqok.github.io
+
+User-agent: *
+Allow: /
+
+# Disallow access to admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow access to CSS and JS
+Allow: /_next/static/
+Allow: /static/css/
+Allow: /static/js/
+
+# Sitemap
+Sitemap: https://hyunqok.github.io/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

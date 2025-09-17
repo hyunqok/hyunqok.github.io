@@ -194,7 +194,7 @@ const Logo = () => {
 					/>
 				</g>
 			</svg>
-			<span
+			{/* <span
 				ref={el => {
 					if (el) logoHiddenTextRef.current.push(el);
 				}}
@@ -217,7 +217,7 @@ const Logo = () => {
 				aria-hidden="true"
 			>
 				K.
-			</span>
+			</span> */}
 		</div>
 	);
 };

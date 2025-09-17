@@ -1,32 +1,151 @@
 import '@/shared/css/globals.css';
-import Footer from '@/widgets/Footer';
 import Header from '@/widgets/Header';
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
 
-const inter = Inter({ subsets: ['latin'] });
-
+// SEO 최적화된 메타데이터 설정
 export const metadata: Metadata = {
-	title: 'Qook',
-	description: '웹퍼블리싱 10년차 개발자로서 혁신적인 웹 솔루션을 제공합니다.',
-	keywords: ['웹퍼블리싱', '프론트엔드', '개발자', '포트폴리오', 'Next.js', 'React'],
-	authors: [{ name: 'Qook' }],
-	openGraph: {
-		title: 'Qook',
-		description: '웹퍼블리싱 10년차 개발자로서 혁신적인 웹 솔루션을 제공합니다.',
-		type: 'website',
+	title: {
+		default: '주식 투자 도구 | 물타기 계산기 & 매수 전략',
+		template: '%s | 주식 투자 도구',
 	},
+	description:
+		'피보나치 수열 기반 주식 물타기 계산기와 최적의 매수 전략을 제공합니다. 데이터 기반 투자 결정을 위한 전문 도구입니다.',
+	keywords: [
+		'주식',
+		'물타기',
+		'계산기',
+		'피보나치',
+		'매수전략',
+		'투자',
+		'주식투자',
+		'분할매수',
+		'평균단가',
+		'수익률',
+		'포트폴리오',
+	],
+	authors: [{ name: 'hyunqok', url: 'https://github.com/hyunqok' }],
+	creator: 'hyunqok',
+	publisher: 'hyunqok',
+	formatDetection: {
+		email: false,
+		address: false,
+		telephone: false,
+	},
+	metadataBase: new URL('https://hyunqok.github.io'),
+	alternates: {
+		canonical: '/',
+		languages: {
+			'ko-KR': '/',
+		},
+	},
+	openGraph: {
+		type: 'website',
+		locale: 'ko_KR',
+		url: 'https://hyunqok.github.io',
+		title: '주식 투자 도구 | 물타기 계산기 & 매수 전략',
+		description: '피보나치 수열 기반 주식 물타기 계산기와 최적의 매수 전략을 제공합니다.',
+		siteName: '주식 투자 도구',
+		images: [
+			{
+				url: '/og-image.jpg',
+				width: 1200,
+				height: 630,
+				alt: '주식 투자 도구 - 물타기 계산기',
+			},
+		],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: '주식 투자 도구 | 물타기 계산기 & 매수 전략',
+		description: '피보나치 수열 기반 주식 물타기 계산기와 최적의 매수 전략을 제공합니다.',
+		images: ['/twitter-image.jpg'],
+		creator: '@hyunqok',
+	},
+	robots: {
+		index: true,
+		follow: true,
+		nocache: false,
+		googleBot: {
+			index: true,
+			follow: true,
+			noimageindex: false,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
+	},
+	verification: {
+		google: 'your-google-verification-code',
+	},
+	category: 'finance',
+	classification: 'Investment Tools',
 };
+
+// 뷰포트 설정
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
+	maximumScale: 1,
+	userScalable: false,
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: '#ffffff' },
+		{ media: '(prefers-color-scheme: dark)', color: '#000000' },
+	],
+};
+
+const inter = Inter({
+	subsets: ['latin'],
+	display: 'swap',
+});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="ko">
-			<body
-				className={`${inter.className} min-h-screen`}
-				// className={`${inter.className} min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900`}
-			>
+			<head>
+				{/* 추가 SEO 메타태그들 */}
+				<meta name="theme-color" content="#ffffff" />
+				<meta name="msapplication-TileColor" content="#ffffff" />
+				<meta name="msapplication-config" content="/browserconfig.xml" />
+				<link rel="icon" href="/favicon.ico" sizes="any" />
+				<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+				<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+				<link rel="manifest" href="/manifest.json" />
+
+				{/* 구조화 데이터 (JSON-LD) */}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							'@context': 'https://schema.org',
+							'@type': 'WebApplication',
+							name: '주식 투자 도구',
+							description:
+								'피보나치 수열 기반 주식 물타기 계산기와 최적의 매수 전략을 제공합니다.',
+							url: 'https://hyunqok.github.io',
+							applicationCategory: 'FinanceApplication',
+							operatingSystem: 'Web Browser',
+							offers: {
+								'@type': 'Offer',
+								price: '0',
+								priceCurrency: 'KRW',
+							},
+							creator: {
+								'@type': 'Person',
+								name: 'hyunqok',
+								url: 'https://github.com/hyunqok',
+							},
+							publisher: {
+								'@type': 'Person',
+								name: 'hyunqok',
+							},
+						}),
+					}}
+				/>
+			</head>
+			<body className={`${inter.className} min-h-screen bg-white text-gray-900 antialiased`}>
 				<Header />
-				{children}
+				<main className="min-h-screen">{children}</main>
 				{/* <Footer /> */}
 			</body>
 		</html>
