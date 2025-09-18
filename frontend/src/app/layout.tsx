@@ -2,6 +2,7 @@ import '@/shared/css/globals.css';
 import Header from '@/widgets/Header';
 import { Inter } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
+import { StockAuthProvider } from '@/shared/lib/context/StockAuthContext';
 
 // SEO 최적화된 메타데이터 설정
 export const metadata: Metadata = {
@@ -144,9 +145,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				/>
 			</head>
 			<body className={`${inter.className} min-h-screen bg-white text-gray-900 antialiased`}>
-				<Header />
-				<main className="min-h-screen">{children}</main>
-				{/* <Footer /> */}
+				<StockAuthProvider>
+					<Header />
+					<main className="min-h-screen">{children}</main>
+					{/* <Footer /> */}
+				</StockAuthProvider>
 			</body>
 		</html>
 	);

@@ -1,5 +1,6 @@
 import { StockAveragingCalculator } from '@/features/stockAveragingCalculator';
 import { FibonacciPurchaseStrategy } from '@/features/tradingStrategy';
+import { AccountInquiry } from '@/shared/ui/AccountInquiry';
 
 export default function StockAveragingCalculatorPage() {
 	return (
@@ -12,6 +13,11 @@ export default function StockAveragingCalculatorPage() {
 					<div className="">
 						<FibonacciPurchaseStrategy />
 					</div>
+				</div>
+
+				{/* 계좌 조회 섹션 */}
+				<div className="mt-8">
+					<AccountInquiry />
 				</div>
 			</div>
 		</main>
