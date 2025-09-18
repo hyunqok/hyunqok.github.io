@@ -3,7 +3,7 @@ import { Button } from '@/shared/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card';
 import { PieChart } from 'lucide-react';
 import { useStockAuth } from '../lib/context/StockAuthContext';
-import { fn_ka01690, Ka01690OutputData } from '../api/stock/auth';
+import { fn_ka01690, Ka01690OutputData, fn_ka00198, Ka00198Item } from '../api/stock/auth';
 import { useState } from 'react';
 
 // 응답 처리를 위한 타입 정의
@@ -70,6 +70,35 @@ export function AccountInquiry() {
 		}
 	};
 
+	// --- ka00198 (실시간종목조회순위) state and handler ---
+	const [qryTp, setQryTp] = useState<'1' | '2' | '3' | '4' | '5'>('1');
+	const [rankResult, setRankResult] = useState<Ka00198Item[] | null>(null);
+
+	const handleRankInquiry = async () => {
+		if (!accessToken) {
+			console.error('❌ 인증 토큰이 없습니다.');
+			return;
+		}
+
+		setIsLoading(true);
+		try {
+			console.log('🔍 실시간종목조회순위(ka00198) 요청 시작, qry_tp=', qryTp);
+			const res = await fn_ka00198(accessToken, { qry_tp: qryTp });
+			if (res && res.item_inq_rank) {
+				setRankResult(res.item_inq_rank);
+				console.log('✅ ka00198 결과 수신:', res.item_inq_rank.length);
+			} else {
+				setRankResult([]);
+				console.warn('⚠️ ka00198: 결과가 없습니다.', res);
+			}
+		} catch (err) {
+			console.error('❌ ka00198 호출 중 오류:', err);
+			setRankResult(null);
+		} finally {
+			setIsLoading(false);
+		}
+	};
+
 	return (
 		<Card>
 			<CardHeader>
@@ -108,6 +137,65 @@ export function AccountInquiry() {
 					>
 						{isLoading ? '조회 중...' : '조회하기'}
 					</Button>
+
+					{/* ka00198 실시간순위 조회 섹션 */}
+					<div className="mt-4 rounded-md border p-3">
+						<label className="text-sm font-medium">실시간 순위 유형</label>
+						<div className="mt-2 flex items-center gap-2">
+							<select
+								value={qryTp}
+								onChange={e =>
+									setQryTp(e.target.value as '1' | '2' | '3' | '4' | '5')
+								}
+								disabled={!accessToken || isLoading}
+								className="rounded-md border p-1 text-sm"
+							>
+								<option value="1">1분</option>
+								<option value="2">10분</option>
+								<option value="3">1시간</option>
+								<option value="4">당일 누적</option>
+								<option value="5">30초</option>
+							</select>
+							<Button
+								variant="outline"
+								onClick={handleRankInquiry}
+								disabled={!accessToken || isLoading}
+							>
+								실시간순위 조회
+							</Button>
+						</div>
+
+						{/* 결과 테이블 */}
+						{rankResult && (
+							<div className="mt-3 max-h-48 overflow-auto">
+								<table className="w-full text-xs">
+									<thead className="bg-gray-100">
+										<tr>
+											<th className="p-1">순위</th>
+											<th className="p-1">종목명</th>
+											<th className="p-1">코드</th>
+											<th className="p-1">빅데이터 순위</th>
+											<th className="p-1">등락</th>
+										</tr>
+									</thead>
+									<tbody>
+										{rankResult.map((it, idx) => (
+											<tr key={idx} className="border-b border-gray-200">
+												<td className="p-1 text-center">{idx + 1}</td>
+												<td className="p-1">{it.stk_nm}</td>
+												<td className="p-1">{it.stk_cd}</td>
+												<td className="p-1 text-right">{it.bigd_rank}</td>
+												<td className="p-1 text-right">
+													{it.rank_chg_sign}
+													{it.rank_chg}
+												</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
+						)}
+					</div>
 
 					{!accessToken && (
 						<p className="text-muted-foreground text-sm">

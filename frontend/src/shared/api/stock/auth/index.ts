@@ -1,76 +1,7 @@
-import axios from 'axios';
-
-// 타입 정의
-interface AuthResponse {
-	access_token: string;
-	token_type: string;
-	expires_in: number;
-	scope?: string;
-}
-
-interface AuthRequest {
-	expires_dt: string;
-	token_type: string;
-	token: string;
-	return_code: number;
-	return_msg: string;
-}
-
+/**
+ *  ./api_schema 참조
+ */
 const url = 'https://api.kiwoom.com';
-// 모의 투자
-const mock_url = 'https://mockapi.kiwoom.com';
-
-// API 키 가져오기
-const STOCK_API_KEY = 'twADkd1Su_c_rN__XUmKB5ANk0rJa4u2zXsp8n9591s';
-const STOCK_SECRET_KEY = 'KpHu6qCWvJMgYXk3ngYqiaWD92AUYWCjZquAzvpQTPg';
-
-/**
- * 키움증권 API 접근 토큰 발급
- * @param appKey 앱 키
- * @param secretKey 시크릿 키
- * @returns 인증 응답 데이터
- */
-export async function getAccessToken(
-	appKey: string,
-	secretKey: string,
-): Promise<AuthResponse | null> {
-	try {
-		const response = await axios.post<AuthResponse>(url + '/oauth2/token', {
-			headers: {
-				'Content-Type': 'application/json;charset=UTF-8',
-			},
-		});
-
-		console.log('🚀 ~ response:', response);
-
-		console.log('✅ 인증 성공');
-		console.log('Status:', response.status);
-		console.log('Access Token:', response.data.access_token);
-
-		return response.data;
-	} catch (error) {
-		console.error('❌ 인증 실패:', error);
-		if (axios.isAxiosError(error)) {
-			console.error('응답 상태:', error.response?.status);
-			console.error('응답 데이터:', error.response?.data);
-		}
-		return null;
-	}
-}
-
-/**
- * 현재 환경의 API 키로 인증 실행
- * @returns 인증 결과
- */
-export async function authenticateStockAPI(): Promise<AuthResponse | null> {
-	if (!STOCK_API_KEY || !STOCK_SECRET_KEY) {
-		console.error('❌ STOCK_API_KEY 또는 STOCK_SECRET_KEY 환경 변수가 설정되지 않았습니다.');
-		return null;
-	}
-
-	console.log('🔐 주식 API 인증을 시작합니다...');
-	return await getAccessToken(STOCK_API_KEY, STOCK_SECRET_KEY);
-}
 
 /**
  * API 요청 헤더 인터페이스
@@ -139,6 +70,102 @@ export interface Ka01690OutputData {
 	day_bal_rt: StockBalanceItem[]; // 일별잔고수익률 목록
 	return_code?: number; // 리턴 코드 (0: 성공) - API 문서에 없지만 호환성 유지
 	return_msg?: string; // 리턴 메시지 - API 문서에 없지만 호환성 유지
+}
+
+/**
+ * 실시간종목조회순위(ka00198) 요청 바디
+ */
+interface Ka00198RequestBody {
+	qry_tp: string; // 1:1분,2:10분,3:1시간,4:당일 누적,5:30초
+}
+
+/**
+ * 실시간종목조회순위(ka00198) 응답 항목
+ */
+export interface Ka00198Item {
+	stk_nm: string; // 종목명
+	bigd_rank: string; // 빅데이터 순위
+	rank_chg: string; // 순위 등락
+	rank_chg_sign: string; // 순위 등락 부호
+	past_curr_prc: string; // 과거 현재가
+	base_comp_sign: string; // 기준가 대비 부호
+	base_comp_chgr: string; // 기준가 대비 등락율
+	prev_base_sign: string; // 직전 기준 대비 부호
+	prev_base_chgr: string; // 직전 기준 대비 등락율
+	dt: string; // 일자
+	tm: string; // 시간
+	stk_cd: string; // 종목코드
+}
+
+/**
+ * ka00198 응답 바디
+ */
+export interface Ka00198Response {
+	item_inq_rank?: Ka00198Item[];
+	return_code?: number;
+	return_msg?: string;
+	[key: string]: unknown;
+}
+
+/**
+ * 실시간종목조회순위 호출 (ka00198)
+ */
+export async function fn_ka00198(
+	token: string,
+	body: Ka00198RequestBody,
+	cont_yn: string = 'N',
+	next_key: string = '',
+): Promise<Ka00198Response | null> {
+	const endpoint = '/api/dostk/stkinfo';
+
+	// 요청 바디 검증
+	if (!/^[1-5]$/.test(body.qry_tp)) {
+		console.error('❌ qry_tp 값이 올바르지 않습니다. 1-5 값 중 하나여야 합니다.');
+		return null;
+	}
+
+	const requestBody = { qry_tp: body.qry_tp };
+
+	const headers: Record<string, string> = {
+		'Content-Type': 'application/json;charset=UTF-8',
+		authorization: `Bearer ${token}`,
+		'api-id': 'ka00198',
+	};
+
+	if (cont_yn === 'Y' && next_key) {
+		headers['cont-yn'] = cont_yn;
+		headers['next-key'] = next_key;
+	}
+
+	try {
+		console.log('📡 ka00198 요청 시작...', requestBody);
+		const response = await fetch(url + endpoint, {
+			method: 'POST',
+			headers,
+			body: JSON.stringify(requestBody),
+		});
+
+		if (!response.ok) {
+			console.error('❌ ka00198 API 요청 실패:', response.status, response.statusText);
+			return null;
+		}
+
+		const responseHeaders = {
+			'cont-yn': response.headers.get('cont-yn'),
+			'next-key': response.headers.get('next-key'),
+			'api-id': response.headers.get('api-id'),
+		};
+
+		console.log('응답 헤더:', responseHeaders);
+
+		const data: Ka00198Response = await response.json();
+		console.log('ka00198 응답:', data);
+
+		return data;
+	} catch (error) {
+		console.error('❌ ka00198 요청 실패:', error);
+		return null;
+	}
 }
 
 /**
