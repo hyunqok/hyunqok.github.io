@@ -1,12 +1,10 @@
-'use client';
+import { FibonacciPurchaseStrategyProvider } from './FibonacciPurchaseStrategyContainer';
+import { FibonacciPurchaseStrategyPresenter } from './FibonacciPurchaseStrategyPresenter';
 
-import React from 'react';
-import { FibonacciPurchaseStrategyProvider, FibonacciPurchaseStrategyPresenter } from './index';
-
-export const FibonacciPurchaseStrategy = () => {
+export default function FibonacciPurchaseStrategy() {
 	return (
 		<FibonacciPurchaseStrategyProvider>
 			<FibonacciPurchaseStrategyPresenter />
 		</FibonacciPurchaseStrategyProvider>
 	);
-};
+}

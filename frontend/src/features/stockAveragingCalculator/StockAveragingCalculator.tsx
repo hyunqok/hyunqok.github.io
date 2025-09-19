@@ -1,12 +1,11 @@
-'use client';
-
 import React from 'react';
-import { StockAveragingCalculatorProvider, StockAveragingCalculatorPresenter } from './index';
+import { StockAveragingCalculatorProvider } from './StockAveragingCalculatorContainer';
+import { StockAveragingCalculatorPresenter } from './StockAveragingCalculatorPresenter';
 
-export const StockAveragingCalculator = () => {
+export default function StockAveragingCalculator() {
 	return (
 		<StockAveragingCalculatorProvider>
 			<StockAveragingCalculatorPresenter />
 		</StockAveragingCalculatorProvider>
 	);
-};
+}
