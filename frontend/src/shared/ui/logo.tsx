@@ -2,6 +2,7 @@
 
 import React, { memo, useCallback, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { cn } from '../lib/utils';
 
 declare global {
 	interface Window {
@@ -10,7 +11,11 @@ declare global {
 	}
 }
 
-const Logo = () => {
+interface Props {
+	className?: string;
+}
+
+const Logo = ({ className }: Props) => {
 	const logoRef = useRef<HTMLDivElement>(null);
 	const logoEyeRef = useRef<SVGGElement>(null);
 	const logoFaceRef = useRef<SVGGElement>(null);
@@ -152,7 +157,7 @@ const Logo = () => {
 	return (
 		<div
 			ref={logoRef}
-			className="inline-flex items-end text-gray-800"
+			className={cn('inline-flex items-end text-gray-800', className)}
 			aria-label="Hyun Qook Jeong Logo"
 			role="img"
 		>

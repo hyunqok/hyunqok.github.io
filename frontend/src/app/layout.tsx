@@ -1,5 +1,6 @@
 import '@/shared/css/globals.css';
 import Header from '@/widgets/Header';
+import { AppSidebar, SidebarProvider } from '@/widgets/AppSidebar';
 import { Inter } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 
@@ -144,9 +145,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				/>
 			</head>
 			<body className={`${inter.className} min-h-screen bg-white text-gray-900 antialiased`}>
-				<Header />
-				<main className="min-h-screen">{children}</main>
-				{/* <Footer /> */}
+				<SidebarProvider>
+					<div className="flex min-h-screen w-full">
+						<AppSidebar />
+						<div className="flex w-full flex-1 flex-col">
+							<Header />
+							<main className="flex-1">{children}</main>
+							{/* <Footer /> */}
+						</div>
+					</div>
+				</SidebarProvider>
 			</body>
 		</html>
 	);
