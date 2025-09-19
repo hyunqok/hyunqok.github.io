@@ -1,21 +1,22 @@
 'use client';
 
-import { ChangeEvent } from 'react';
+import { Button } from '@/shared/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card';
 import { Input } from '@/shared/ui/input';
-import { Button } from '@/shared/ui/button';
 import { Label } from '@/shared/ui/label';
+import { ChangeEvent, useEffect } from 'react';
 import { useStockAveragingCalculator } from './StockAveragingCalculatorContainer';
-
-/*
-1504
-449
-1536
-*/
 
 export const StockAveragingCalculatorPresenter = () => {
 	const { stockData, result, currentAnalysis, mode, updateStockData, setMode, amounts, reset } =
 		useStockAveragingCalculator();
+
+	console.log('🚀 ~ StockAveragingCalculatorPresenter rendered with stockData:', stockData);
+
+	// 데이터가 변경될 때 추적하기 위한 useEffect 추가
+	useEffect(() => {
+		console.log('🔄 stockData changed in StockAveragingCalculatorPresenter:', stockData);
+	}, [stockData]);
 
 	const handleInputChange = (field: keyof typeof stockData, value: string) => {
 		const numValue = parseFloat(value) || 0;

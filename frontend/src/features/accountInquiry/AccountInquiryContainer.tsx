@@ -1,13 +1,14 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useCallback, Profiler } from 'react';
 import { useStockAuth } from '@/app/providers/StockAuthContext';
-import { fn_ka01690 } from '@/shared/api/stock';
-import { InquiryState } from './types';
+import { fn_ka01690, Ka01690OutputData } from '@/shared/api/stock';
 
-/**
- * 비즈니스 로직 Container에, UI 렌더링은 Presenter에 위치하여 패턴이 항상 올바르게 유지되어야 한다.
- */
+interface InquiryState {
+	isSuccess: boolean;
+	data: Ka01690OutputData | null;
+	errorMessage: string | null;
+}
 
 interface AccountInquiryContextType {
 	accessToken: string | null;
@@ -34,7 +35,7 @@ interface AccountInquiryProviderProps {
 	children: ReactNode;
 }
 
-export const AccountInquiryContainer: React.FC<AccountInquiryProviderProps> = ({ children }) => {
+export const AccountInquiryProvider: React.FC<AccountInquiryProviderProps> = ({ children }) => {
 	const { accessToken } = useStockAuth();
 	const [isLoading, setIsLoading] = useState(false);
 	const [inquiryDate, setInquiryDate] = useState('');
@@ -120,9 +121,29 @@ export const AccountInquiryContainer: React.FC<AccountInquiryProviderProps> = ({
 		reset,
 	};
 
+	const onRenderCallback = (
+		id: string, // "AccountInquiryProvider"
+		phase: 'mount' | 'update', // 렌더링 단계
+		actualDuration: number, // 렌더링에 걸린 시간
+		baseDuration: number, // 메모이제이션 없이 렌더링에 걸릴 시간
+		startTime: number, // 렌더링 시작 시간
+		commitTime: number, // 렌더링 커밋 시간
+		interactions: Set<any> // 상호작용 추적
+	) => {
+		console.log(`[Profiler] ${id} (${phase}):`, {
+			actualDuration,
+			baseDuration,
+			startTime,
+			commitTime,
+			interactions,
+		});
+	};
+
 	return (
-		<AccountInquiryContext.Provider value={contextValue}>
-			{children}
-		</AccountInquiryContext.Provider>
+		<Profiler id="AccountInquiryProvider" onRender={onRenderCallback}>
+			<AccountInquiryContext.Provider value={contextValue}>
+				{children}
+			</AccountInquiryContext.Provider>
+		</Profiler>
 	);
 };

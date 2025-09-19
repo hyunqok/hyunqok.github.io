@@ -2,8 +2,12 @@
 
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card';
+import { Input } from '@/shared/ui/input';
+import { Label } from '@/shared/ui/label';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/shared/ui/table';
 import { PieChart } from 'lucide-react';
 import { useAccountInquiry } from './AccountInquiryContainer';
+import { useStockAveragingCalculator } from '../stockAveragingCalculator/StockAveragingCalculatorContainer';
 
 export function AccountInquiryPresenter() {
 	const {
@@ -16,6 +20,47 @@ export function AccountInquiryPresenter() {
 		executeInquiry,
 		reset,
 	} = useAccountInquiry();
+
+	const { updateStockData } = useStockAveragingCalculator();
+
+	// 보유 종목 클릭 핸들러
+	const handleStockItemClick = (item: {
+		stk_nm: string;
+		rmnd_qty: string;
+		buy_uv: string;
+		cur_prc: string;
+		prft_rt: string;
+	}) => {
+		console.log('💫 AccountInquiry handleStockItemClick called with:', item);
+		console.log('💫 updateStockData function available:', !!updateStockData);
+
+		// 데이터를 숫자로 변환하고 null 체크를 추가
+		const qty = Number(item.rmnd_qty);
+		const price = Number(item.buy_uv);
+		const marketPrice = Number(item.cur_prc);
+
+		console.log('💫 Converted values:', { qty, price, marketPrice });
+
+		// 데이터 유효성 검증
+		if (isNaN(qty) || isNaN(price) || isNaN(marketPrice)) {
+			console.error('💫 Invalid data conversion:', { qty, price, marketPrice });
+			return;
+		}
+
+		const data = {
+			currentQuantity: qty, // 보유 수량
+			averagePrice: price, // 평균 매수가
+			currentMarketPrice: marketPrice, // 현재가
+		};
+
+		console.log('💫 Sending data to StockAveragingCalculator:', data);
+		try {
+			updateStockData(data);
+			console.log('💫 updateStockData called successfully');
+		} catch (error) {
+			console.error('💫 Error calling updateStockData:', error);
+		}
+	};
 
 	return (
 		<Card>
@@ -30,12 +75,10 @@ export function AccountInquiryPresenter() {
 				<div className="space-y-4">
 					{/* 조회 날짜 입력 필드 */}
 					<div className="grid w-full items-center gap-1.5">
-						<label htmlFor="date" className="text-sm font-medium">
-							조회 날짜 (YYYYMMDD)
-						</label>
-						<input
+						<Label htmlFor="date">조회 날짜 (YYYYMMDD)</Label>
+						<Input
 							id="date"
-							className="w-full rounded-md border border-gray-300 p-2 text-sm"
+							type="text"
 							value={inquiryDate}
 							onChange={e => updateInquiryDate(e.target.value)}
 							placeholder={formattedDate}
@@ -99,52 +142,67 @@ export function AccountInquiryPresenter() {
 											<h4 className="mb-1 text-sm font-medium">
 												보유 종목 ({inquiryResult.data.day_bal_rt.length})
 											</h4>
+											<p className="text-muted-foreground mb-2 text-xs">
+												💡 종목을 클릭하면 물타기 계산기에 데이터가 자동으로
+												입력됩니다
+											</p>
 											<div className="max-h-60 overflow-auto">
-												<table className="w-full text-xs">
-													<thead className="bg-gray-100">
-														<tr>
-															<th className="p-1">종목명</th>
-															<th className="p-1">수량</th>
-															<th className="p-1">매수가</th>
-															<th className="p-1">현재가</th>
-															<th className="p-1">수익률</th>
-														</tr>
-													</thead>
-													<tbody>
+												<Table>
+													<TableHeader>
+														<TableRow>
+															<TableHead>종목명</TableHead>
+															<TableHead className="text-right">
+																수량
+															</TableHead>
+															<TableHead className="text-right">
+																매수가
+															</TableHead>
+															<TableHead className="text-right">
+																현재가
+															</TableHead>
+															<TableHead className="text-right">
+																수익률
+															</TableHead>
+														</TableRow>
+													</TableHeader>
+													<TableBody>
 														{inquiryResult.data.day_bal_rt.map(
 															(item, index) => (
-																<tr
+																<TableRow
 																	key={index}
-																	className="border-b border-gray-200"
+																	className="cursor-pointer transition-colors hover:bg-gray-50"
+																	onClick={() =>
+																		handleStockItemClick(item)
+																	}
 																>
-																	<td className="p-1 text-center">
+																	<TableCell className="font-medium">
 																		{item.stk_nm}
-																	</td>
-																	<td className="p-1 text-right">
+																	</TableCell>
+																	<TableCell className="text-right">
 																		{Number(
 																			item.rmnd_qty,
 																		).toLocaleString()}
-																	</td>
-																	<td className="p-1 text-right">
+																	</TableCell>
+																	<TableCell className="text-right">
 																		{Number(
 																			item.buy_uv,
 																		).toLocaleString()}
-																	</td>
-																	<td className="p-1 text-right">
+																	</TableCell>
+																	<TableCell className="text-right">
 																		{Number(
 																			item.cur_prc,
 																		).toLocaleString()}
-																	</td>
-																	<td
-																		className={`p-1 text-right ${Number(item.prft_rt) >= 0 ? 'text-red-500' : 'text-blue-500'}`}
+																	</TableCell>
+																	<TableCell
+																		className={`text-right font-medium ${Number(item.prft_rt) >= 0 ? 'text-red-500' : 'text-blue-500'}`}
 																	>
 																		{item.prft_rt}%
-																	</td>
-																</tr>
+																	</TableCell>
+																</TableRow>
 															),
 														)}
-													</tbody>
-												</table>
+													</TableBody>
+												</Table>
 											</div>
 										</div>
 									)}

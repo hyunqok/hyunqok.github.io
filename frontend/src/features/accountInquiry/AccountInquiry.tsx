@@ -1,10 +1,10 @@
-import { AccountInquiryContainer } from './AccountInquiryContainer';
+import { AccountInquiryProvider } from './AccountInquiryContainer';
 import { AccountInquiryPresenter } from './AccountInquiryPresenter';
 
 export default function AccountInquiry() {
 	return (
-		<AccountInquiryContainer>
+		<AccountInquiryProvider>
 			<AccountInquiryPresenter />
-		</AccountInquiryContainer>
+		</AccountInquiryProvider>
 	);
 }
