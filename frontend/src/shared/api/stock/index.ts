@@ -203,7 +203,7 @@ export async function fn_ka01690(
 	const headers: Record<string, string> = {
 		'Content-Type': 'application/json;charset=UTF-8', // 컨텐츠 타입
 		authorization: `Bearer ${token}`, // 접근 토큰 (Bearer 형식)
-		'api-id': 'ka01690', // TR명 (필수)
+		'api-id': 'ka10085', // TR명 (필수)
 	};
 
 	// 연속 조회 시 필요한 헤더 추가

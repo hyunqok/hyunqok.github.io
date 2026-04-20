@@ -92,14 +92,13 @@ export function AccountInquiryPresenter() {
 					{/* 조회하기 버튼 */}
 					<div className="flex gap-2">
 						<Button
-							variant="outline"
 							className="flex-1"
 							onClick={executeInquiry}
 							disabled={!accessToken || isLoading}
 						>
 							{isLoading ? '조회 중...' : '조회하기'}
 						</Button>
-						<Button variant="ghost" onClick={reset} disabled={isLoading}>
+						<Button variant="outline" onClick={reset} disabled={isLoading}>
 							초기화
 						</Button>
 					</div>
@@ -136,11 +135,11 @@ export function AccountInquiryPresenter() {
 								</div>
 
 								{/* 종목별 정보 표시 */}
-								{inquiryResult.data.day_bal_rt &&
-									inquiryResult.data.day_bal_rt.length > 0 && (
+								{inquiryResult.processedBalances &&
+									inquiryResult.processedBalances.length > 0 && (
 										<div className="mt-3">
 											<h4 className="mb-1 text-sm font-medium">
-												보유 종목 ({inquiryResult.data.day_bal_rt.length})
+												보유 종목 ({inquiryResult.processedBalances.length})
 											</h4>
 											<p className="text-muted-foreground mb-2 text-xs">
 												💡 종목을 클릭하면 물타기 계산기에 데이터가 자동으로
@@ -161,42 +160,50 @@ export function AccountInquiryPresenter() {
 																현재가
 															</TableHead>
 															<TableHead className="text-right">
+																평가손익
+															</TableHead>
+															<TableHead className="text-right">
 																수익률
 															</TableHead>
 														</TableRow>
 													</TableHeader>
 													<TableBody>
-														{inquiryResult.data.day_bal_rt.map(
+														{inquiryResult.processedBalances.map(
 															(item, index) => (
 																<TableRow
 																	key={index}
 																	className="cursor-pointer transition-colors hover:bg-gray-50"
 																	onClick={() =>
-																		handleStockItemClick(item)
+																		handleStockItemClick({
+																			stk_nm: item.stk_nm || '',
+																			rmnd_qty: String(item.quantity),
+																			buy_uv: String(item.buyPrice),
+																			cur_prc: String(item.currentPrice),
+																			prft_rt: item.profitRate.toFixed(2),
+																		})
 																	}
 																>
 																	<TableCell className="font-medium">
 																		{item.stk_nm}
 																	</TableCell>
 																	<TableCell className="text-right">
-																		{Number(
-																			item.rmnd_qty,
-																		).toLocaleString()}
+																		{item.quantity.toLocaleString()}
 																	</TableCell>
 																	<TableCell className="text-right">
-																		{Number(
-																			item.buy_uv,
-																		).toLocaleString()}
+																		{item.buyPrice.toLocaleString()}
 																	</TableCell>
 																	<TableCell className="text-right">
-																		{Number(
-																			item.cur_prc,
-																		).toLocaleString()}
+																		{item.currentPrice.toLocaleString()}
 																	</TableCell>
 																	<TableCell
-																		className={`text-right font-medium ${Number(item.prft_rt) >= 0 ? 'text-red-500' : 'text-blue-500'}`}
+																		className={`text-right font-medium ${item.profitLoss >= 0 ? 'text-red-500' : 'text-blue-500'}`}
 																	>
-																		{item.prft_rt}%
+																		{item.profitLoss.toLocaleString()}
+																	</TableCell>
+																	<TableCell
+																		className={`text-right font-medium ${item.profitRate >= 0 ? 'text-red-500' : 'text-blue-500'}`}
+																	>
+																		{item.profitRate.toFixed(2)}%
 																	</TableCell>
 																</TableRow>
 															),

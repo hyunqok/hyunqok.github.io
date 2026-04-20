@@ -36,14 +36,14 @@ const Header = () => {
 				<div className="flex items-center gap-4">
 					<SidebarTrigger />
 				</div>
-				<div className="">
+				{/* <div className="">
 					<span className="sr-only">hyun qook jeong home</span>
 					<h1 className="logo-block">
 						<Link href="/" aria-label="hyun qook jeong home">
 							<Logo />
 						</Link>
 					</h1>
-				</div>
+				</div> */}
 				<div className="">
 					<div ref={gnbRef} className={`relative ${isGnbOpen ? 'gnb-open' : ''}`}>
 						<button
